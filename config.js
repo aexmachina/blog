@@ -6,15 +6,32 @@ var path = require('path'),
     config;
 
 config = {
+
   paths: {
-    contentPath: path.resolve(__dirname, '..', 'content')
+    contentPath: path.resolve(__dirname, 'content')
   },
+  
   // ### Production
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
-    url: 'http://my-ghost-blog.com',
-    mail: {},
+    paths: {
+      contentPath: path.resolve(__dirname, 'content')
+    },
+    url: 'http://beinglucid.wades.be',
+    mail: {
+      service: 'Gmail',
+      transport: 'SMTP',
+      options: {
+        host: 'smtp.gmail.com',
+        secureConnection: true,
+        port: 465,
+        auth: {
+          user: 'simon.wade.servers@gmail.com',
+          pass: 'DI6pUwXq-X%u'
+        }
+      }
+    },
     database: {
       client: 'sqlite3',
       connection: {
@@ -27,7 +44,7 @@ config = {
       // Host to be passed to node's `net.Server#listen()`
       host: '127.0.0.1',
       // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-      port: '2368'
+      port: '9001'
     }
   },
 
