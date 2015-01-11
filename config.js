@@ -15,10 +15,7 @@ config = {
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
-    paths: {
-      contentPath: path.resolve(__dirname, 'content')
-    },
-    url: 'http://beinglucid.wades.be',
+   url: 'http://beinglucid.wades.be',
     mail: {
       service: 'Gmail',
       transport: 'SMTP',
