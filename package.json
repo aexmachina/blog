@@ -4,13 +4,21 @@
   "description": "Personal blog",
   "main": "index.js",
   "scripts": {
+    "preinstall": "cd modules/basement && npm install",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@aexmachina",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^2.6.4",
+    "config-node": "^1.2.2",
+    "express": "^4.11.0",
     "ghost": "^0.5.7",
-    "hbs": "^2.8.0"
+    "hbs": "^2.8.0",
+    "lodash": "^2.4.1",
+    "lugg": "^1.1.0",
+    "traceur": "0.0.81",
+    "traceur-source-maps": "^1.0.6"
   }
 }

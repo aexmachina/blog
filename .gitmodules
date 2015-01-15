@@ -1,0 +1,4 @@
+[submodule "modules/basement"]
+  branch = master
+	path = modules/basement
+	url = git@github.com:franq/basement.git
