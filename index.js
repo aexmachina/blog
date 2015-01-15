@@ -6,7 +6,7 @@ var config = require('config-node');
 
 var appP = require('src/app').init();
 appP.then(function(app) {
-    return ghost({config: config.ghostConfig})
+    return ghost({config: path.resolve(__dirname, config.ghostConfig)})
       .then(function(ghostServer) {
         app.use(ghostServer.rootApp);
         ghostServer.start(app);
