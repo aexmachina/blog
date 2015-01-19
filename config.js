@@ -15,7 +15,7 @@ config = {
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
-   url: 'http://beinglucid.wades.be',
+   url: 'http://aexmachina.info',
     mail: {
       service: 'Gmail',
       transport: 'SMTP',
@@ -41,7 +41,7 @@ config = {
       // Host to be passed to node's `net.Server#listen()`
       host: '127.0.0.1',
       // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-      port: '9001'
+      port: '2368'
     }
   },
 

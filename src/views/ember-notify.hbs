@@ -1,10 +1,12 @@
 {{!< default}}
-{{> header}}
-
-<section class="page-content primary" role="main">
-
-  <!--<article class="post">-->
-  Hello world!
-  {{> footer}}
-
-</section>
+<header id="site-head" {{#if cover}}style="background-image: url('{{cover}}')"{{/if}}>
+  {{> links}}
+  <div class="cf"></div>
+  <div id="title">
+    <h1>Ember Notify</h1>
+    <h2>Notifications for your app</h2>
+  </div>
+</header>
+<div class="container" id="content" role="main">
+  Hello
+</div>

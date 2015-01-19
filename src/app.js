@@ -6,7 +6,7 @@ exports.init = function(options = {}) {
   var app = express();
 
   app.disable('x-powered-by');
-  var themeDir = path.resolve('content/themes/plattan');
+  var themeDir = path.resolve('content/themes/aexmachina');
   require('basement/views').init(app, {
     partialsDir: themeDir + '/partials',
     layoutsDir: themeDir
