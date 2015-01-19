@@ -1,3 +1,4 @@
 node_modules/
 logs/
 content/data/*.db
+ember-demos/app/pods/temp

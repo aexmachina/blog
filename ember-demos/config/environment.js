@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-demos',
+    podModulePrefix: 'ember-demos/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -40,7 +41,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/assets/ember-demos/';
+    ENV.locationType = 'hash';
   }
 
   return ENV;

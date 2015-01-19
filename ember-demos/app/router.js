@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('ember-notify-demo', {path: 'ember-notify'});
+  this.route('temp');
 });
 
 export default Router;
