@@ -29,10 +29,10 @@ nav {
   }
   .f-dropdown {
     margin-top: 10px;
-    &,
+    background: rgba(0,0,0,0.6);
     li:hover,
     li:focus {
-      background: black;
+      background: transparent;
     }
     &.open::before {
       margin-right: 100px;
@@ -74,6 +74,9 @@ body.project-page {
       border: none;
       padding: 0;
       margin: 0 0 20px;
+      .version {
+        font-size: 14px;
+      }
     }
   }
 }

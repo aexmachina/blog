@@ -3,3 +3,4 @@ logs/
 content/data/*.db
 content/themes/aexmachina/bower_components
 ember-demos/app/pods/temp
+content/themes/aexmachina/assets/css/aexmachina.css
