@@ -16,11 +16,12 @@ module.exports = (grunt)->
     sass:
       dev: sassConfig  = 
         files:
-          'assets/css/screen.css': 'assets/sass/screen.scss'
-          'assets/css/typography.css': 'assets/sass/typography.scss'
+          'assets/css/aexmachina.css': 'assets/sass/aexmachina.scss'
         options:
           includePaths: [
-            '../../../core/client/assets/sass'
+            'assets/css',
+            '../../../node_modules/ghost/core/client/assets/sass',
+            'bower_components/foundation/scss'
           ]
       prod: _.merge({}, sassConfig, options: style: 'compressed')
 

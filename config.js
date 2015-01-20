@@ -15,7 +15,7 @@ config = {
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
-   url: 'http://aexmachina.info',
+    url: 'http://aexmachina.info',
     mail: {
       service: 'Gmail',
       transport: 'SMTP',

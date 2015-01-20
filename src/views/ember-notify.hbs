@@ -1,12 +1,106 @@
 {{!< default}}
-<header id="site-head" {{#if cover}}style="background-image: url('{{cover}}')"{{/if}}>
-  {{> links}}
-  <div class="cf"></div>
-  <div id="title">
-    <h1>Ember Notify</h1>
-    <h2>Notifications for your app</h2>
+<header id="site-head" {{#if image}}style="background-image: url('{{image}}')"{{/if}}>
+  <div class='underlay'>
+    {{> links}}
+    <div class="cf"></div>
+    <div id="title">
+      <h1>Ember Notify</h1>
+      <h2>Notifications for Your Ember</h2>
+    </div>
   </div>
 </header>
 <div class="container" id="content" role="main">
-  Hello
+  <div class='row'>
+    <div class='project-details columns medium-4'>
+      <h2>ember-notify</h2>
+      <a href="http://github.com/aexmachina/ember-notify">View the project on GitHub <small>aexmachina/ember-notify</small></a><br>
+      <div><a class='button' href='/assets/ember-demos/#/ember-notify' target='_blank'>Launch demo</a></div>
+      <a href="https://travis-ci.org/aexmachina/ember-notify"><img src="https://travis-ci.org/aexmachina/ember-notify.png" alt="Build Status" title="" /></a>
+    </div>
+    <div class='columns medium-8'>
+
+
+
+<p><code>ember-notify</code> displays wee little notification messages down the bottom of your Ember.js app.</p>
+
+<p>The CSS classes are compatible with Zurb Foundation 5, or you can use Bootstrap styling using <code>\{{ember-notify messageStyle='bootstrap'}}</code>.</p>
+
+<p>The CSS animations are inspired by CSS from <a href="http://fabien-d.github.io/alertify.js/">alertify.js</a>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<ol>
+<li>Add <code>\{{ember-notify}}</code> to one of your templates, usually in <code>application.hbs</code>.  </li>
+<li>Use <code>this.notify</code> in routes or controllers to display messages: </li>
+</ol>
+
+<pre><code class="language-js">this.notify.info('Hello there!');
+this.notify.alert('This is an alert.');
+this.notify.success('It worked.'):
+this.notify.warning('Hmmn, that didn\'t work out.');
+</code></pre>
+
+<p>If you're not in a route or a controller you can use the <code>Notify</code> helper: </p>
+
+<pre><code class="language-js">import Notify from 'ember-notify';
+</code></pre>
+
+<p>By default the notifications close after 2.5 seconds, or you can control when they're closed:</p>
+
+<pre><code class="language-js">var message = Notify.alert('You can control how long it\'s displayed', {
+  closeAfter: 10000 // or set to null to disable auto-hiding
+});
+message.set('visible', false); // and you can hide messages programmatically.
+</code></pre>
+
+<p>The Notify methods (<code>info</code>, <code>success</code>, <code>warning</code>, <code>alert</code> and <code>error</code>) all return a Promise for an instance of <code>Message</code>. You can use this object to change the <code>message</code> property, or to programatically hide the message by setting <code>visible</code> to <code>false</code>.</p>
+
+<p>You can specify raw HTML:</p>
+
+<pre><code class="language-js">Notify.info({raw: '&lt;div class="my-div"&gt;Hooray!&lt;/div&gt;'});
+</code></pre>
+
+<p>Rounded corners, if that's your thing:</p>
+
+<pre><code class="language-js">Notify.alert('This one\'s got rounded corners.', {
+  radius: true
+});
+</code></pre>
+
+<h3 id="multiplecontainers">Multiple Containers</h3>
+
+<p>If you want to have separate notifications and control where they're inserted into the DOM you can <br />
+have multiple <code>\{{ember-notify}}</code> components, but only one of them can be accessed using the <code>Notify</code> helper. The others you will need to provide a <code>source</code> property.</p>
+
+<p>Secondary containers should be used as follows:</p>
+
+<pre><code class="language-hbs">\{{ember-notify source=someProperty}}
+</code></pre>
+
+<pre><code class="language-js">// in your controller
+export default Ember.Controller.extend({
+  someProperty: Notify.property(), // or this.set('someProperty', Notify.create())
+  actions: {
+    clicked: function() {
+      this.get('someProperty').success('Hello from the controller');
+    }
+  }
+});
+</code></pre>
+
+<h2 id="installation">Installation</h2>
+
+<p>This module is an ember-cli addon, so all you need to do is:</p>
+
+<pre><code class="language-sh">npm install ember-notify --save-dev
+</code></pre>
+
+<h3 id="upgradingfromapreviousversion">Upgrading from a previous version</h3>
+
+<p>See <a href="https://github.com/aexmachina/ember-notify/blob/master/CHANGELOG.md">the CHANGELOG</a>.</p>
+
+
+
+    </div>
+  </div>
 </div>
