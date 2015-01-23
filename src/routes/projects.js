@@ -4,7 +4,8 @@ var _ = require('lodash')
 
 module.exports = function(app) {
   projectPage(app, readPackage('ember-demos/node_modules/ember-notify/package.json'), {
-    demo: '/assets/ember-demos/#/ember-notify'
+    demo: '/assets/ember-demos/#/ember-notify',
+    description: 'Notifications for Ember.js'
   });
   projectPage(app, readPackage('node_modules/lugg/package.json'), {
     description: 'Simple logging for Node.js'
