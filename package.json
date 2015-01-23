@@ -4,7 +4,6 @@
   "description": "Personal blog",
   "main": "index.js",
   "scripts": {
-    "preinstall": "cd modules/basement && npm install",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "./bin/post-install.sh"
