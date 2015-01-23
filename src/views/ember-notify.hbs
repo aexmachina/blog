@@ -1,26 +1,4 @@
-{{!< default}}
-<header id="site-head" {{#if image}}style="background-image: url('{{image}}')"{{/if}}>
-  <div class='underlay'>
-    {{> links}}
-    <div class="cf"></div>
-    <div id="title">
-      <h1>Ember Notify</h1>
-      <h2>Notifications for Your Ember</h2>
-    </div>
-  </div>
-</header>
-<div class="container" id="content" role="main">
-  <div class='row'>
-    <div class='project-details columns medium-4'>
-      <h2>{{project.name}} <span class='version'>v{{project.version}}</span></h2>
-      <a href="{{project.github}}">View the project on GitHub <small>aexmachina/{{project.name}}</small></a><br>
-      <div><a class='button' href='/assets/ember-demos/#/ember-notify' target='_blank'>Launch demo</a></div>
-      <a href="https://travis-ci.org/aexmachina/ember-notify"><img src="https://travis-ci.org/aexmachina/ember-notify.png" alt="Build Status" title="" /></a>
-    </div>
-    <div class='columns medium-8'>
-
-
-
+{{!< project}}
 <p><code>ember-notify</code> displays wee little notification messages down the bottom of your Ember.js app.</p>
 
 <p>The CSS classes are compatible with Zurb Foundation 5, or you can use Bootstrap styling using <code>\{{ember-notify messageStyle='bootstrap'}}</code>.</p>
@@ -100,9 +78,3 @@ export default Ember.Controller.extend({
 <h3 id="upgradingfromapreviousversion">Upgrading from a previous version</h3>
 
 <p>See <a href="https://github.com/aexmachina/ember-notify/blob/master/CHANGELOG.md">the CHANGELOG</a>.</p>
-
-
-
-    </div>
-  </div>
-</div>

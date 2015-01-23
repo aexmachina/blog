@@ -1,0 +1,88 @@
+{{!< project}}
+<p>A simple logging module that uses <a href="https://github.com/trentm/node-bunyan">bunyan</a> and draws inspiration from TJ Hollowaychuk's <a href="https://github.com/visionmedia/debug"><code>debug</code></a>.</p>
+
+<p>Logging is a universal concern in most programs, and <code>lugg</code> aims to make the common usage pattern as simple as possible.</p>
+
+<h4>
+<a id="user-content-based-on-bunyan" class="anchor" href="#based-on-bunyan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Based on bunyan</h4>
+
+<blockquote>
+<p>Manifesto: Server logs should be structured. JSON's a good format. Let's do that. A log record is one line of <code>JSON.stringify</code>'d output. </p>
+</blockquote>
+
+<p>At first glance, logging appears to be an isolated concern, but on closer inspection you can see that it intersects with analytics, error handling, debugging and disaster recovery. The bunyan module provides a great solution to address all of these concerns.</p>
+
+<p><code>lugg</code> simplifies the common use case, and aims to be really simple to use.</p>
+
+<h4>
+<a id="user-content-inspired-by-debug" class="anchor" href="#inspired-by-debug" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inspired by <code>debug</code>
+</h4>
+
+<p><code>lugg</code> also provides the ability to control debug output using a <code>DEBUG</code> environment variable, and you can even access debug and trace output from a running process using bunyan's runtime log snooping feature (using DTrace).</p>
+
+<h2>
+<a id="user-content-example-usage" class="anchor" href="#example-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Usage</h2>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// call init once in your program</span>
+<span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>lugg<span class="pl-pds">'</span></span>).init();
+
+<span class="pl-c">// then in foo.js</span>
+<span class="pl-s">var</span> log <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>lugg<span class="pl-pds">'</span></span>)(<span class="pl-s1"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);
+log<span class="pl-s3">.info</span>(<span class="pl-s1"><span class="pl-pds">'</span>doing stuff<span class="pl-pds">'</span></span>);
+log<span class="pl-s3">.warn</span>({foo<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>}, <span class="pl-s1"><span class="pl-pds">'</span>something %s<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>interesting<span class="pl-pds">'</span></span>);
+log<span class="pl-s3">.error</span>(<span class="pl-k">new</span> <span class="pl-en">Error</span>(<span class="pl-s1"><span class="pl-pds">'</span>blah<span class="pl-pds">'</span></span>), <span class="pl-s1"><span class="pl-pds">'</span>something %s<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>bad<span class="pl-pds">'</span></span>);
+log.debug(<span class="pl-s1"><span class="pl-pds">'</span>this will not be output<span class="pl-pds">'</span></span>); <span class="pl-c">// set DEBUG=app:foo to see debug output from this logger</span></pre></div>
+
+<p>Each argument you pass is logged as-is, up to the first string argument, which is formatted using <code>util.format()</code> to provide string interpolation of any subsequent arguments.</p>
+
+<p>Read <a href="https://github.com/aexmachina/lugg/blob/master/index.js">the source</a> (it's tiny) and refer the <a href="https://github.com/trentm/node-bunyan#features">bunyan docs</a> for more info.</p>
+
+<h2>
+<a id="user-content-controlling-log-output" class="anchor" href="#controlling-log-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlling Log Output</h2>
+
+<p>You can control the output of lugg using the <code>level</code> option:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>lugg<span class="pl-pds">'</span></span>).init({level<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>warn<span class="pl-pds">'</span></span>}); <span class="pl-c">// show only warnings and higher</span></pre></div>
+
+<p>The logging level you provide in the call to <code>.init()</code> would typically come
+from your local configuration (eg. <code>warn</code> in production, <code>info</code> in
+development).</p>
+
+<p>You can also manipulate the logging level for specific loggers at runtime,
+without having to modify your configuration, using an environment variable (see
+<a href="#controlling-debug-output">Controlling Debug Output</a> below).</p>
+
+<p>The call to <code>lugg.init()</code> takes an option hash, which is passed to
+<code>bunyan.createLogger()</code> to create a "root logger". All loggers returned from
+<code>lugg</code> are children of this root logger, so they inherit whatever settings
+you provide to <code>init()</code>.</p>
+
+<p>See the docs for bunyan for more info about the supported options. <code>lugg</code> will
+provide a name of "app" if no <code>name</code> is provided.</p>
+
+<h2>
+<a id="user-content-controlling-debug-output" class="anchor" href="#controlling-debug-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controlling Debug Output</h2>
+
+<p>The log level can be manipulated using the <code>DEBUG</code> environment variable, using
+the same approach as the <code>debug</code> module:</p>
+
+<div class="highlight highlight-shell"><pre>$ DEBUG=<span class="pl-k">*</span> node app.js <span class="pl-c"># print all debug output</span>
+$ DEBUG=app:<span class="pl-k">*</span> node app.js <span class="pl-c"># print debug output from your app</span>
+$ DEBUG=foo,express:<span class="pl-k">*</span> node app.js <span class="pl-c"># print debug output from foo and express</span>
+$ DEBUG=<span class="pl-k">*</span>,-foo node app.js <span class="pl-c"># print all debug output except foo</span></pre></div>
+
+<p>As loggers are created, if they have a name that matches this environment variable then they will have their <code>level</code> set to <code>debug</code>. You can also manipulate this programmatically using <code>lugg.debug()</code>:</p>
+
+<div class="highlight highlight-javascript"><pre>lugg.debug(<span class="pl-s1"><span class="pl-pds">'</span>app:foo<span class="pl-pds">'</span></span>); <span class="pl-c">// debug messages from app:foo</span>
+lugg.debug(<span class="pl-s1"><span class="pl-pds">'</span>app:foo:<span class="pl-pds">'</span></span>); <span class="pl-c">// debug messages from app:foo</span></pre></div>
+
+<p>Be aware this doesn't change any loggers that have already been created.</p>
+
+<h2>
+<a id="user-content-output" class="anchor" href="#output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output</h2>
+
+<p>bunyan writes logs to stdout in JSON format, so pipe the output through the bunyan CLI to get logs in a more human readable format:</p>
+
+<div class="highlight highlight-shell"><pre>node app <span class="pl-k">|</span> bunyan --output short</pre></div>
+
+<p>The <a href="https://github.com/trentm/node-bunyan#cli-usage">bunyan CLI</a> also provides many features for filtering your log output, for example <code>bunyan --output short</code> is awesome for development.</p>
