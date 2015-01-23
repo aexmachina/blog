@@ -309,10 +309,6 @@ table {
   table.plain tbody > tr:nth-child(odd) > td, table.plain tbody > tr:nth-child(odd) > th {
     background: transparent; }
 
-* {
-  margin: 0;
-  padding: 0; }
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
