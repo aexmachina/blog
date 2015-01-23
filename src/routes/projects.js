@@ -10,16 +10,22 @@ module.exports = function(app) {
   projectPage(app, readPackage('node_modules/lugg/package.json'), {
     description: 'Simple logging for Node.js'
   });
+  projectPage(app, readPackage(
+    'content/themes/aexmachina/bower_components/jquery-bonsai/bower.json'), {
+    description: 'Super lightweight jQuery tree plugin',
+    travis: false
+  });
 };
 
 function projectPage(app, project, opts) {
   project = _.assign({
     image: 'IMG_20150110_155753.jpg',
-    github: 'https://github.com/aexmachina/' + project.name
+    github: 'https://github.com/aexmachina/' + project.name,
+    travis: true
   }, project, opts);
   app.get('/' + project.name, (req, res) => {
     res.render(project.name, {
-      body_class: 'project-page light-background',
+      body_class: 'project-page light-background ' + project.name,
       image: '/assets/images/' + project.image,
       project: project
     });

@@ -154,9 +154,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0; }
 
 h2 {
-  padding-top: 0.8em;
-  margin-top: 0.8em;
+  margin-top: 1.6rem;
   border-top: #edece4 1px solid; }
+
+h3 {
+  margin-top: 1rem; }
 
 h1 a:hover {
   text-decoration: none;
@@ -171,7 +173,7 @@ h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   box-shadow: #28c0b7 0 -1px 0 inset; }
 
 p, ul, ol {
-  margin: 1.6em 0; }
+  margin: 1rem 0 1.5rem; }
 
 ol ol, ul ul, ul ol, ol ul {
   margin: 0.4em 0; }

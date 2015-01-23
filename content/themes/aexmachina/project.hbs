@@ -17,9 +17,11 @@
       {{#if project.demo}}
         <div><a class='button' href='{{project.demo}}' target='_blank'>Launch demo</a></div>
       {{/if}}
-      <a href="https://travis-ci.org/aexmachina/{{project.name}}">
-        <img src="https://travis-ci.org/aexmachina/{{project.name}}.png" alt="Build Status" title="" />
-      </a>
+      {{#if project.travis}}
+        <a href="https://travis-ci.org/aexmachina/{{project.name}}">
+          <img src="https://travis-ci.org/aexmachina/{{project.name}}.png" alt="Build Status" title="" />
+        </a>
+      {{/if}}
     </div>
     <div class='columns medium-8'>
       {{{body}}}
