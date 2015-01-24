@@ -357,7 +357,7 @@ header {
   max-height: 550px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  background-color: black;
+  background-color: rgb(34,34,34);
   background: url('/assets/images/main.jpg') no-repeat center;
   background-size: cover;
   background-attachment: fixed; }
