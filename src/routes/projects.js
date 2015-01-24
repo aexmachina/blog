@@ -5,6 +5,7 @@ var _ = require('lodash')
 module.exports = function(app) {
   projectPage(app, readPackage('ember-demos/node_modules/ember-notify/package.json'), {
     demo: '/assets/ember-demos/#/ember-notify',
+    image: 'IMG_20150110_155753.jpg',
     description: 'Notifications for Ember.js'
   });
   projectPage(app, readPackage('node_modules/lugg/package.json'), {
@@ -19,7 +20,6 @@ module.exports = function(app) {
 
 function projectPage(app, project, opts) {
   project = _.assign({
-    image: 'IMG_20150110_155753.jpg',
     github: 'https://github.com/aexmachina/' + project.name,
     travis: true
   }, project, opts);
