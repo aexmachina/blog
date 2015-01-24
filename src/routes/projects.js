@@ -5,7 +5,8 @@ var _ = require('lodash')
 module.exports = function(app) {
   projectPage(app, readPackage('ember-demos/node_modules/ember-notify/package.json'), {
     demo: '/assets/ember-demos/#/ember-notify',
-    image: 'IMG_20150110_155753.jpg',
+    //image: '/assets/images/IMG_20150110_155753.jpg',
+    body_class: 'light-background',
     description: 'Notifications for Ember.js'
   });
   projectPage(app, readPackage('node_modules/lugg/package.json'), {
@@ -25,8 +26,7 @@ function projectPage(app, project, opts) {
   }, project, opts);
   app.get('/' + project.name, (req, res) => {
     res.render(project.name, {
-      body_class: 'project-page light-background ' + project.name,
-      image: '/assets/images/' + project.image,
+      body_class: 'project-page ' + project.name + ' ' + opts.body_class,
       project: project
     });
   });
