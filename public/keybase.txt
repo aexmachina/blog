@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/aexmachina
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://aexmachina.info
+  * I am aexmachina (https://keybase.io/aexmachina) on keybase.
+  * I have a public key with fingerprint C99E 8EA3 9A10 90C7 5D71  6D67 D63F 6167 31A6 C4BD
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "c99e8ea39a1090c75d716d67d63f616731a6c4bd",
+            "host": "keybase.io",
+            "key_id": "d63f616731a6c4bd",
+            "kid": "010148705551b65dd0e14688cc7ae6631d9f0e45480f5eb847fc5c7c3585c63177fd0a",
+            "uid": "3c2f911c879770764d37b463eab13100",
+            "username": "aexmachina"
+        },
+        "revoke": {
+            "sig_ids": [
+                "43390ab2048ac1ef45ab4a65ad98acff6f43d0210cd5c1eee17bbb66a7a1b2b70f"
+            ]
+        },
+        "service": {
+            "hostname": "aexmachina.info",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1422915162,
+    "expire_in": 157680000,
+    "prev": "70799e09bc4cf7938ee3d1680c9bbe389194963eb37e75c0ba4240f4eb55467b",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMJiAnicbZJdaFRHFMc30RqzYBSDFu2DdMhDAzHM7HzdWTBNpC4GP2qpvqh1mZk7
+N7mk3ru5u1kjdilKJaItMY0iDcU2UPugRqPgi1ISEyUrgh8oorbYDwQDfjyYEmhr
+0bmhPtl5Geac//zOmf+ZS/NmJZIVZ4+U33l78i9WcfXiYFdi4/XpzbuACt2dIL0L
+dJiZzfODNhPlIj8ogDTQQhjHSCwkggJqTl2OmMu4y7DHEOMYSaaJckEDaA/z8Q2L
+UTJvGv3Qxuwh67s2+j/6jpkERBARh0NKKVKMui40iDDH0ZpLwxhGrvCgIZQ40KNG
+OYR7mmquMXWotmnOPRdKi+uawWGd8gRC2uGCc8gZcTFXhGEjFcIIwliYN1Egtxur
+lqZ7u9TtfiBBqQFEphh2mNiDvN9m286D9BZAMBZQqhQkjtTIeIRKRSSj0hU24HnM
+I9iFKQS1S23eGMSVUoxJLpFKKQ498Ill25pFX8/AY5/eqN/oB15sWC4KC6EOP7XJ
+9kIhl477KuzMxeIdRmX/w2SVH7h2TvZC0UR5PwxAGlmlLvgxF5FUSiCKWKoBmO6c
+H5msHysoZw60Ky5jihZpHbLzhUJpoj0usGMMdpEVaaGUwY5AgghrnsLccKqhkiRF
+oEeMopQwrkD8sM4gBGli25RtFmmtC2ShKzKgNDa6dXaiIpmY81Zl/NMSyeoFr/+f
+XFb1UnN8oW+kMPaPs7VparTlXrkGXV1e3t8zd311890v5hcfPOypmuir3XLny+bK
+x0N+f6s/9e3s+pHhwQ8Hmk8XZev+yYMflTas3NvydFIterLhzPwrx7N76qI11/s/
+m1W7+vaqh0N19d/0bXt6cPDHsaaJD2pqlv/+xxK6b/fhZ9mli2+Zn0+dvza1sLfn
+xm/T2766XKp7/9eVpWTrg5revtpNK1a8mznWcmjJ88/nrV/7/cfTd1ruB+tubhr4
+4ZcXRxvOwvo1maobncnM2LFlh/uPNp3/e/BM+cTwk/LouUxj5YsD4229JzcP/PnT
+o0aRWfve1/8OtXanV48fufbd0HDnharqK12mZ8ofb38Frg5HYg==
+=flVG
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/aexmachina
+
+==================================================================
+
