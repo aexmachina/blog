@@ -17,6 +17,9 @@ module.exports = function(app) {
     description: 'Super lightweight jQuery tree plugin',
     travis: false
   });
+  projectPage(app, readPackage('node_modules/ember-devtools/package.json'), {
+    description: 'Simple logging for Node.js'
+  });
 };
 
 function projectPage(app, project, opts) {

@@ -24,7 +24,12 @@ this.notify.warning('Hmmn, that didn\'t work out.');
 Notify.info('Peace.');
 </code></pre>
 
-<p>By default the notifications close after 2.5 seconds, or you can control when they're closed:</p>
+<p>By default the notifications close after 2.5 seconds, although you can control this in your template:</p>
+
+<pre><code class="language-handlebars">{{ember-notify closeAfter=4000}}
+</code></pre>
+
+<p>Or you can control when each message is closed:</p>
 
 <pre><code class="language-js">var message = Notify.alert('You can control how long it\'s displayed', {
   closeAfter: 10000 // or set to null to disable auto-hiding
@@ -78,3 +83,7 @@ export default Ember.Controller.extend({
 <h3 id="upgradingfromapreviousversion">Upgrading from a previous version</h3>
 
 <p>See <a href="https://github.com/aexmachina/ember-notify/blob/master/CHANGELOG.md">the CHANGELOG</a>.</p>
+
+<h2 id="compatibility">Compatibility</h2>
+
+<p>Some users have reported issues with IE8, so this is currently not supported.</p>

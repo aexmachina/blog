@@ -1,0 +1,12 @@
+{
+  "ext": "js",
+  "ignore": [
+    "node_modules/",
+    "ember-demos/",
+    "content/themes/aexmachina/node_modules/",
+    "content/themes/aexmachina/bower_components/",
+    "modules/*/node_modules/",
+    "tmp/",
+    "var/"
+  ]
+}
