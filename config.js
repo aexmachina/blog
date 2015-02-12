@@ -6,16 +6,15 @@ var path = require('path'),
     config;
 
 config = {
-
-  paths: {
-    contentPath: path.resolve(__dirname, 'content')
-  },
   
   // ### Production
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
     url: 'http://aexmachina.info',
+    paths: {
+      contentPath: path.resolve(__dirname, 'content')
+    },
     mail: {
       service: 'Gmail',
       transport: 'SMTP',
@@ -41,7 +40,7 @@ config = {
       // Host to be passed to node's `net.Server#listen()`
       host: '127.0.0.1',
       // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-      port: '2368'
+      port: '9000'
     }
   },
 

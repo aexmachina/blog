@@ -1,6 +1,6 @@
 {
-  "beinglucid": {
-    "description": "beinglucid service",
+  "aexmachina": {
+    "description": "aexmachina service",
     "scripts": {
       "start": "node index"
     },
