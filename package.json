@@ -13,6 +13,7 @@
   "dependencies": {
     "bluebird": "^2.6.4",
     "config-node": "^1.2.2",
+    "ember-devtools": "^3.0.2",
     "express": "^4.11.0",
     "ghost": "^0.5.7",
     "hbs": "^2.8.0",

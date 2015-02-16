@@ -18,7 +18,7 @@ module.exports = function(app) {
     travis: false
   });
   projectPage(app, readPackage('node_modules/ember-devtools/package.json'), {
-    description: 'Simple logging for Node.js'
+    description: 'Console dev tools for Ember.js'
   });
 };
 
@@ -27,6 +27,7 @@ function projectPage(app, project, opts) {
     github: 'https://github.com/aexmachina/' + project.name,
     travis: true
   }, project, opts);
+  console.log(project.name);
   app.get('/' + project.name, (req, res) => {
     res.render(project.name, {
       body_class: 'project-page ' + project.name + ' ' + opts.body_class,
