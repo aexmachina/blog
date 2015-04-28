@@ -9,7 +9,7 @@
       <p>jquery-bonsai is a lightweight jQuery plugin that takes a big nested list and prunes it
         down to a small expandable tree control.</p>
       <p>Also includes support for checkboxes
-        (including 'indeterminate' state) and for populating the tree using a
+        (including 'indeterminate' state), radio buttons and for populating the tree using a
         JSON data source.</p>
       <h2>Installation</h2>
 <pre>
@@ -140,7 +140,7 @@ $('#checkboxes').bonsai({
 $('#auto-checkboxes').bonsai({
   expandAll: true,
   checkboxes: true, // depends on jquery.qubit plugin
-  createCheckboxes: true // takes values from data-name and data-value, and data-name is inherited
+  createInputs: 'checkbox' // takes values from data-name and data-value, and data-name is inherited
 });
 </pre>
       <script>
@@ -148,7 +148,7 @@ $('#auto-checkboxes').bonsai({
         $('#auto-checkboxes').bonsai({
           expandAll: true,
           checkboxes: true, // depends on jquery.qubit plugin
-          createCheckboxes: true // takes values from data-name and data-value, and data-name is inherited
+          createInputs: 'checkbox' // takes values from data-name and data-value, and data-name is inherited
         });
       });
       </script>
@@ -194,6 +194,67 @@ $('#auto-checkboxes').bonsai({
           </ol>
         </li>
       </ol>
+
+      <h3>Auto-Generated Radio Buttons</h3>
+      <p>Creates radio buttons for each list item. The name and value for the checkboxes
+        are taken from <code>data-name</code> and <code>data-value</code>. The name is inherited from the parent
+        items, if not specified. Checked state can be indicated using <code>data-checked</code>.</p>
+      <pre class="code prettyprint javascript">
+$('#auto-radio-buttons').bonsai({
+  expandAll: true,
+  createInputs: 'radio'
+});
+</pre>
+      <script>
+      jQuery(function() {
+        $('#auto-radio-buttons').bonsai({
+          expandAll: true,
+          createInputs: 'radio' // takes values from data-name and data-value, and data-name is inherited
+        });
+      });
+      </script>
+      <p>The following markup...</p>
+      <pre class="code prettyprint javascript">
+&lt;ol id='auto-checkboxes' <em>data-name='foo'</em>>
+  &lt;li class='expanded' <em>data-value='0'</em>>All
+    &lt;ol>
+      &lt;li <em>data-value='1'</em>>One&lt;/li>
+      &lt;li <em>data-value='2'</em>>
+        Two
+        &lt;ol>
+          &lt;li <em>data-value='3'</em>>
+            Three
+            &lt;ol>
+              &lt;li <em>data-value='4'</em> <em>data-checked='1'</em>>Four&lt;/li>
+            &lt;/ol>
+          &lt;/li>
+          &lt;li <em>data-value='5'</em>>Five&lt;/li>
+        &lt;/ol>
+      &lt;/li>
+    &lt;/ol>
+  &lt;/li>
+&lt;/ol>
+      </pre>
+      <p>...yields:</p><ol id='auto-radio-buttons' data-name='foo'>
+        <li class='expanded' data-value='0'>All
+          <ol>
+            <li data-value='1'>One</li>
+            <li data-value='2'>
+              Two
+              <ol>
+                <li data-value='3'>
+                  Three
+                  <ol>
+                    <li data-value='4' data-checked='1'>Four</li>
+                  </ol>
+                </li>
+                <li data-value='5'>Five</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+
       <h3>Generate the Tree Using a JSON Data Source</h3>
       <p>Requires the <a href="https://github.com/aexmachina/jquery-json-list">JSON List plugin</a>.</p>
 <pre class="code prettyprint javascript">
@@ -205,7 +266,7 @@ $('#from-JSON').jsonList({
   // onListItem: called for each list item created from the JSON
   onListItem: function(event, listItem, data, isGroup) {
     if (!isGroup) {
-      // set the id into a data value so that Bonsai createCheckboxes
+      // set the id into a data value so that Bonsai createInputs
       // can set the checkbox value
       listItem.attr('data-value', data.id);
     }
@@ -215,7 +276,7 @@ $('#from-JSON').jsonList({
     // turn the list into a tree
     $(this.el).find('> ol').bonsai({
       checkboxes: true,
-      createCheckboxes: true,
+      createInputs: 'checkbox',
       handleDuplicateCheckboxes: true,
       expandAll: true
     });
@@ -232,7 +293,7 @@ $('#from-JSON').jsonList({
           // onListItem: called for each list item created from the JSON
           onListItem: function(event, listItem, data, isGroup) {
             if (!isGroup) {
-              // set the id into a data value so that Bonsai createCheckboxes
+              // set the id into a data value so that Bonsai createInputs
               // can set the checkbox value
               listItem.attr('data-value', data.id);
             }
@@ -242,7 +303,7 @@ $('#from-JSON').jsonList({
             // turn the list into a tree
             $(this.el).find('> ol').bonsai({
               checkboxes: true,
-              createCheckboxes: true,
+              createInputs: 'checkbox',
               handleDuplicateCheckboxes: true,
               expandAll: true
             });
