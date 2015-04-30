@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "foundation": "~5.5.0",
-    "jquery-bonsai": "1.2.0",
+    "jquery-bonsai": "2.0.0-beta",
     "jquery-qubit": "~2.0.3",
     "jquery-json-list": "~0.2.1"
   }

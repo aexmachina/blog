@@ -15,7 +15,7 @@
     "config-node": "^1.2.2",
     "ember-devtools": "^3.0.2",
     "express": "^4.11.0",
-    "ghost": "^0.5.7",
+    "ghost": "^0.6.2",
     "hbs": "^2.8.0",
     "lodash": "^2.4.1",
     "lugg": "^1.1.0",
