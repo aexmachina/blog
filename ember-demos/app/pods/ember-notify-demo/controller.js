@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
   message: 'Hello, world!',
   raw: false,
   closeAfter: 2500,
+  notify: Ember.inject.service('notify'),
   actions: {
     info: showLevel('info'),
     alert: showLevel('alert'),
@@ -17,7 +18,7 @@ function showLevel(level) {
     var message = {
       closeAfter: Number(this.get('closeAfter'))
     };
-    message[this.get('raw') ? 'raw' : 'message'] = this.get('message');
-    this.notify.show(level, message);
+    message[this.get('raw') ? 'html' : 'text'] = this.get('message');
+    this.get('notify').show(level, message);
   };
 }
