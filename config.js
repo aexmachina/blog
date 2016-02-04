@@ -6,12 +6,12 @@ var path = require('path'),
     config;
 
 config = {
-  
+
   // ### Production
   // When running Ghost in the wild, use the production environment
   // Configure your URL and mail settings here
   production: {
-    url: 'http://aexmachina.info',
+    url: 'http://simonwade.me',
     paths: {
       contentPath: path.resolve(__dirname, 'content')
     },
